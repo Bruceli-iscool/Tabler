@@ -19,12 +19,20 @@ public class App {
         loadingScreen.setLayout(null);
         JLabel logo = new JLabel("Tabler", SwingConstants.CENTER);
         JLabel progress = new JLabel("-", SwingConstants.CENTER);
+        JLabel info = new JLabel("Tabler v0.0", SwingConstants.LEFT);
+        JLabel info2 = new JLabel("NO WARRANTY OF ANY KIND IS PROVIDED!", SwingConstants.LEFT);
         logo.setFont(new Font("Calibri", Font.BOLD, 48));
         progress.setFont(new Font("Calibri", Font.BOLD, 36));
+        info.setFont(new Font("Calibri", Font.PLAIN, 14));
+        info2.setFont(new Font("Calibri", Font.PLAIN, 14));
         logo.setBounds(45, 10, 300, 80);
         progress.setBounds(45, 300, 300, 80);
+        info.setBounds(45, 150, 300, 160);
+        info2.setBounds(45, 190, 300, 160);
         loadingScreen.add(logo);
         loadingScreen.add(progress);
+        loadingScreen.add(info);
+        loadingScreen.add(info2);
         loadingScreen.setVisible(true);
         Thread.sleep(500);
         progress.setText(progress.getText() + "-");
@@ -42,6 +50,18 @@ public class App {
         }
         Thread.sleep(500);
         loadingScreen.setVisible(false);
+        homeScreen();
     }
-
+    /*
+    * Code for the home screen
+    */
+    private static void homeScreen() {
+        JFrame home = new JFrame("Tabler Launcher v0.0");
+        home.setSize(1500, 900);
+        home.setLocation(600, 200);
+        home.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        home.setLayout(null);
+        home.setVisible(true);
+        // todo
+    }
 }
