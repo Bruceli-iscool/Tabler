@@ -1,7 +1,8 @@
 package dev.desktop;
 import javax.swing.*;
 import java.awt.*;
-
+import java.util.Random;
+import java.util.random.*;
 public class App {
     public static void main(String[] args) throws InterruptedException{
         loadingScreen();
@@ -17,10 +18,30 @@ public class App {
         loadingScreen.setLocation(1100, 500);
         loadingScreen.setLayout(null);
         JLabel logo = new JLabel("Tabler", SwingConstants.CENTER);
+        JLabel progress = new JLabel("-", SwingConstants.CENTER);
         logo.setFont(new Font("Calibri", Font.BOLD, 48));
+        progress.setFont(new Font("Calibri", Font.BOLD, 36));
         logo.setBounds(45, 10, 300, 80);
+        progress.setBounds(45, 300, 300, 80);
         loadingScreen.add(logo);
+        loadingScreen.add(progress);
         loadingScreen.setVisible(true);
+        Thread.sleep(500);
+        progress.setText(progress.getText() + "-");
+        int i = 0;
+        while (i < 9) {
+            Random n = new Random();
+            int c = n.nextInt(4);
+            if (c <= 1) {
+                Thread.sleep(100);
+            } else {
+                Thread.sleep(300);
+            }
+            progress.setText(progress.getText() + "-");
+            i++;
+        }
+        Thread.sleep(500);
+        loadingScreen.setVisible(false);
     }
 
 }
