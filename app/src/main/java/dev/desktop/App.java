@@ -1,8 +1,9 @@
 package dev.desktop;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.random.*;
 public class App {
     public static void main(String[] args) throws InterruptedException{
         loadingScreen();
@@ -61,7 +62,23 @@ public class App {
         home.setLocation(600, 200);
         home.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         home.setLayout(null);
+        JLabel title = new JLabel("Tabler Home", SwingConstants.LEFT);
+        title.setFont(new Font("Calibri", Font.BOLD, 48));
+        title.setBounds(40, 20, 1000, 100);
+        JButton newFile = new JButton("New File");
+        newFile.setFont(new Font("Calibri", Font.BOLD, 30));
+        newFile.setBounds(40, 170, 300, 100);
+        home.add(title);
+        home.add(newFile);
         home.setVisible(true);
+        newFile.addActionListener(e -> {
+            createNewFile();
+        });
+    }
+    /*
+    * create a new file and begin editing it
+     */
+    private static void createNewFile() {
         // todo
     }
 }
