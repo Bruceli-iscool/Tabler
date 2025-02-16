@@ -13,12 +13,14 @@ public class App {
     private static void loadingScreen() throws InterruptedException{
         JFrame loadingScreen = new JFrame("Tabler v0.0");
         loadingScreen.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        loadingScreen.setVisible(true);
         loadingScreen.setSize(400, 500);
-        JLabel logo = new JLabel("Tabler");
-        logo.setFont(new Font("Calibre", Font.BOLD, 56));
-        loadingScreen.add(logo);
         loadingScreen.setLocation(1100, 500);
+        loadingScreen.setLayout(null);
+        JLabel logo = new JLabel("Tabler", SwingConstants.CENTER);
+        logo.setFont(new Font("Calibri", Font.BOLD, 48));
+        logo.setBounds(45, 10, 300, 80);
+        loadingScreen.add(logo);
+        loadingScreen.setVisible(true);
     }
 
 }
