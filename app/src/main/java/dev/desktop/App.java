@@ -1,10 +1,14 @@
 package dev.desktop;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 public class App {
+    private static File path;
     public static void main(String[] args) throws InterruptedException{
         loadingScreen();
     }
@@ -72,13 +76,37 @@ public class App {
         home.add(newFile);
         home.setVisible(true);
         newFile.addActionListener(e -> {
-            createNewFile();
+            try {
+                createNewFile();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
     }
     /*
     * create a new file and begin editing it
      */
-    private static void createNewFile() {
-        // todo
+    private static void createNewFile() throws IOException {
+        JFileChooser n = new JFileChooser();
+        n.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter extFilter = new FileNameExtensionFilter("Tabler tbxl file", "tbxl", "tbl");
+        n.addChoosableFileFilter(extFilter);
+        n.showSaveDialog(null);
+        File path1 = n.getSelectedFile();
+        path = new File(path1.getPath() + ".tbxl");
+        if (path.createNewFile()) {
+            edit(true);
+        } else {
+            System.err.println("Error Creating file!");
+            // todo better error handling
+        }
+    }
+    /*
+    * the editor window
+    * */
+    private static void edit(boolean isNewFile) {
+        if (!isNewFile) {
+            // todo read logic
+        }
     }
 }
