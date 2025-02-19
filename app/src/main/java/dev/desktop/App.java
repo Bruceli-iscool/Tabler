@@ -108,5 +108,7 @@ public class App {
         if (!isNewFile) {
             // todo read logic
         }
+    }private static Table read(File file) {
+        return new Table(file);
     }
 }
