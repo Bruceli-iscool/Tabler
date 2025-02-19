@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
 public class App {
@@ -108,7 +109,8 @@ public class App {
         if (!isNewFile) {
             // todo read logic
         }
-    }private static Table read(File file) {
+    }
+    private static Table read(File file) throws FileNotFoundException {
         return new Table(file);
     }
 }
