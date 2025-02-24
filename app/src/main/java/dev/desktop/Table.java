@@ -14,7 +14,7 @@ public class Table {
             try {
                 content.put(rawContentArr[0], rawContentArr[1]);
             } catch (Exception ignored) {
-                // if array out of bounds exception
+                // if array out of bounds exception ignor it
             }
         }
     }
